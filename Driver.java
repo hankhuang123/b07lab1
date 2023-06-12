@@ -7,12 +7,12 @@ public class Driver {
 		//System.out.println(p.evaluate(3));
 		Polynomial p = new Polynomial();
 		// System.out.println("evaluate:"+p.evaluate(3));
-		double [] c1 = {6,-2,5};
-		int [] e1 = {0,1,3};
+		double [] c1 = {5,8,2,6};
+		int [] e1 = {0,1,2,3};
 		Polynomial p1 = new Polynomial(c1,e1);
 		System.out.println("-------------function1/2");
-		double [] c2 = {5,6};
-		int [] e2 = {0,4};
+		double [] c2 = {1,3,2};
+		int [] e2 = {0,1,4};
 		Polynomial p2 = new Polynomial(c2,e2);
 		Polynomial s = p1.add(p2);
 		Polynomial m = p1.multiply(p2);

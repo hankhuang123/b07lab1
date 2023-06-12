@@ -75,8 +75,6 @@ public class Polynomial {
 	
 		int len1 = this.coefficients.length;
 		int len2 = other.coefficients.length;
-		int elen1 = this.exponents.length;
-		int elen2 = other.exponents.length;
 	
 		int maxint = len1;
 		if (len2 > len1)
@@ -165,8 +163,7 @@ public class Polynomial {
         			}
         		}
         }
-
-      //show polynomial 
+    //show polynomial 
         System.out.println("\n-----------multi polynomial:---------");
         for(int p=0;p<maxint;p++) {
         	if(p==0) {System.out.print(coe[p]);      	
@@ -193,75 +190,6 @@ public class Polynomial {
 	
 	}
 	
-// 	   public Polynomial  fileinput(File file) {
-// 		   double[] c= {};
-//            int[] e= {};
-// 		    Polynomial px = new Polynomial(c,e);
-// 		    String result="";
-// 	    	file = new File(filePath);
-	    	
-// 			//System.out.println(p.fileinput(file));
-// 	        try (FileInputStream fistream = new FileInputStream(file)) {
-// 	            int data;
-// 	            String content="";
-// 	            while ((data = fistream.read()) != -1) {
-// 	            	//5-3x2+7x8
-// 	                //System.out.println((char) data+",");
-// 	                content+=(char)data;
-// 	            }
-// 	            //System.out.println(content);
-// 	            //String[] edata =content.split(content, data);
-// 	            //System.out.println(edata[0]);
-// 	            String[] numbers = content.replaceAll("X","x").replaceAll("-",";-").replaceAll("\\+",";+").split(";");
-// 	           // System.out.println(numbers.length);
-// 	            c= new double[numbers.length];
-// 	            e= new int[numbers.length];
-// 	            int emax =numbers.length;
-// 	            for (int n=0;n<numbers.length;n++) {
-// 	            	//System.out.println("numbers:"+numbers[n]);
-// 	            	if(n==0 && numbers[n].indexOf("x")==-1) {
-// 	            		c[n]=Double.parseDouble(numbers[n]);
-// 	            		e[n]=0;
-// 	            		//System.out.println("coefficients:"+c[n]+",exponents:"+e[n]);
-// 	            	}else {
-// 	            		String[] temp =numbers[n].split("x");
-// 	            		c[n]=Double.parseDouble(temp[0]);
-// 	            		e[n]=Integer.parseInt(temp[1]);
-// 	            		//System.out.println("coefficients:"+c[n]+",exponents:"+e[n]);
-	            		
-// 	            	}
-	            		
-// 	            }
-// 	            coefficients=c;
-// 	        	exponents=e;
-// 	        	//show polynomial 
-// 	        	 for(int p=0;p<emax;p++) {
-// 	             	if(p==0) {System.out.print(c[p]);}        	
-// 	             	else {
-// 	             		if(c[p]!=0) {
-// 	             			String exString = "";
-// 	             			if(c[p]>0) {exString = "+";}
-// 	             			System.out.print(exString+c[p]+"x^"+e[p]);
-// 	             			}
-// 	             		}
-// 	        	 }
-// 	        } catch (IOException ex) {
-// 	            ex.printStackTrace();
-// 	        }
-// 	       return px;
-// 	    }
-// 	   public void saveToFile(File file,String content) {
-// 		   file = new File(filePath);
-// 	        try (FileOutputStream fossss = new FileOutputStream(file)) {
-// 	            fossss.write(content.getBytes());
-// 	        } catch (IOException e) {
-// 	            e.printStackTrace();
-// 	        }
-// 	    }
-// }
-
-
-
 public Polynomial(File filename) throws IOException {
     Scanner scan = new Scanner(filename);
     String code = scan.nextLine();
