@@ -264,12 +264,12 @@ public class Polynomial {
 
 
 public Polynomial(File filename) throws IOException {
-    Scanner scanner = new Scanner(filename);
-    String line = scanner.nextLine();
-    scanner.close();
+    Scanner scan = new Scanner(filename);
+    String code = scan.nextLine();
+    scan.close();
 
-    line = line.replace("-", "+-");
-    String[] terms = line.split("\\+");
+    code = code.replace("-", "+-");
+    String[] terms = code.split("\\+");
 
     this.coefficients = new double[terms.length];
     this.exponents = new int[terms.length];
@@ -283,21 +283,21 @@ public Polynomial(File filename) throws IOException {
     }
 }
 
-public void saveToFile(String filename) throws IOException {
-    FileWriter tryer = new FileWriter(filename);
-    String line = "";
+public void saveToFile(String file) throws IOException {
+    FileWriter tryer = new FileWriter(file);
+    String code = "";
     int i = 0;
     while (i < this.coefficients.length) {
-        line += this.coefficients[i] + "x" + this.exponents[i] + "+";
+        code += this.coefficients[i] + "x" + this.exponents[i] + "+";
         i++;
     }
-    line += "REPLACEMENT_STRING";
-    line = line
+    code += "REPLACEMENT_STRING";
+    code = code
         .replace("+-", "-")     //
         .replace("x0", "")      //
         .replace(".0", "")      //
         .replace("+REPLACEMENT_STRING", "");  // to remove the last '+' sign
-    tryer.write(line);
+    tryer.write(code);
     tryer.close();
 }
 
