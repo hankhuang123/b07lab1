@@ -9,7 +9,6 @@ import java.util.ArrayList;
 
 
 public class Polynomial {
-	private static String filePath="d:/java/b07lab2.txt";
 	//MyClass myObj = new MyClass("/path/to/file.txt"); // 绝对路径
 	//MyClass myObj = new MyClass("relative/path/to/file.txt"); // 相对路径
 	double[] coefficients;
@@ -275,13 +274,18 @@ public Polynomial(File filename) throws IOException {
     this.exponents = new int[terms.length];
 
     int k = 0;
-    while (k < terms.length) {
-        String[] ceoandexp = terms[k].split("x"); // "5x2" => ["5", "2"]
-        this.coefficients[k] = Double.parseDouble(ceoandexp[0]);
-        this.exponents[k] = (ceoandexp.length == 1) ? 0 : Integer.parseInt(ceoandexp[1]);
-        k++;
-    }
-}
+	while (k < terms.length) {
+		String[] ceoandexp = terms[k].split("x"); // "5x2" => ["5", "2"]
+		this.coefficients[k] = Double.parseDouble(ceoandexp[0]);
+	
+		if (ceoandexp.length == 1) {
+			this.exponents[k] = 1;
+		} else {
+			this.exponents[k] = Integer.parseInt(ceoandexp[1]);
+		}
+	
+		k++;}
+	}
 
 public void saveToFile(String file) throws IOException {
     FileWriter tryer = new FileWriter(file);
